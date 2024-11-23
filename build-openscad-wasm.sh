@@ -11,9 +11,10 @@ if [ -z "${OPENSCAD_DIR:-}" ]; then
   fi
 fi
 
-docker run --rm -it -v "$OPENSCAD_DIR":/src:rw --platform=linux/amd64 openscad/wasm-base:latest \
+# Removed '-it' from the docker run commands
+docker run --rm  -v "$OPENSCAD_DIR":/src:rw --platform=linux/amd64 openscad/wasm-base:latest \
   emcmake cmake -B build -DEXPERIMENTAL=ON "$@"
-docker run --rm -it -v "$OPENSCAD_DIR":/src:rw --platform=linux/amd64 openscad/wasm-base:latest \
+docker run --rm  -v "$OPENSCAD_DIR":/src:rw --platform=linux/amd64 openscad/wasm-base:latest \
   cmake --build build -j2
 
 rm -fR libs/openscad-wasm
