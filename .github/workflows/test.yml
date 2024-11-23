@@ -25,6 +25,8 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: |
           bash ./build-openscad-wasm.sh
+          npm ci
+          NODE_ENV=production npm run build
       - run: npm install
       - run: make public
       - run: npm run build
