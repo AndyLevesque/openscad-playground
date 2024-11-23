@@ -17,6 +17,9 @@ jobs:
       matrix:
         node: [20]
     name: Node${{ matrix.node }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - name: Setup node ${{ matrix.node }}
