@@ -27,6 +27,7 @@ if (process.env.NODE_ENV !== 'production') {
   log('Logging is enabled!');
 } else {
   debug.disable();
+  log('Production environment loaded');
 }
 
 declare var BrowserFS: BrowserFSInterface
