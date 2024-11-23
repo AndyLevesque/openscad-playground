@@ -26,13 +26,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
+
+      - run: npm install
+      - run: make public
+      - run: npm run build
       - run: |
           bash ./build-openscad-wasm.sh
           npm ci
           NODE_ENV=production npm run build
-      - run: npm install
-      - run: make public
-      - run: npm run build
       - name: List dist directory contents
         run: ls -la ./dist
       - name: Setup Pages
