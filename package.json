@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "homepage": "https://andylevesque.github.io/openscad-playground/",
+  "browser": "src/index.tsx",
   "dependencies": {
     "@monaco-editor/loader": "^1.3.2",
     "@monaco-editor/react": "^4.4.6",
