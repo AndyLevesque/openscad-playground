@@ -22,6 +22,8 @@ mkdir -p libs/openscad-wasm
 
 cp "$OPENSCAD_DIR/build/openscad.wasm" libs/openscad-wasm/
 cp "$OPENSCAD_DIR/build/openscad.js" libs/openscad-wasm/
-cp -r "$OPENSCAD_DIR/resources/locale" libs/openscad-wasm/
+if [ -d "$OPENSCAD_DIR/resources/locale" ]; then
+  cp -r "$OPENSCAD_DIR/resources/locale" libs/openscad-wasm/
+fi
 cp "$OPENSCAD_DIR/build/openscad.wasm.map" libs/openscad-wasm/ || true
 ( cd libs && zip -r ../dist/openscad-wasm.zip openscad-wasm )
